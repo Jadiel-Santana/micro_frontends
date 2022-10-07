@@ -1,4 +1,4 @@
-import 'app.dart';
+import 'src.dart';
 
 abstract class MicroApp {
   String get microAppName;
