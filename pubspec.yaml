@@ -16,6 +16,9 @@ dependencies:
   home:
     path: packages/micro_apps/home
 
+  login:
+    path: packages/micro_apps/login
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

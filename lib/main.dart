@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:home/home.dart';
 import 'package:micro_core/micro_core.dart';
+import 'package:login/login.dart';
+import 'package:home/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget with BaseApp {
       title: 'Micro Frontends',
       navigatorKey: navigatorKey,
       onGenerateRoute: super.generateRoute,
-      initialRoute: '/home',
+      initialRoute: '/login',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget with BaseApp {
 
   @override
   List<MicroApp> get microApps => [
+    MicroAppLoginResolver(),
     MicroAppHomeResolver(),
   ];
 }

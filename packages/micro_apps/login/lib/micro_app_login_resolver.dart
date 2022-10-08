@@ -1,13 +1,13 @@
 import 'package:micro_core/micro_core.dart';
 import 'src/src.dart';
 
-class MicroAppHomeResolver implements MicroApp {
+class MicroAppLoginResolver implements MicroApp {
   @override
-  String get microAppName => 'micro_app_home';
+  String get microAppName => 'micro_app_login';
 
   @override
   Map<String, WidgetBuilderArgs> get routes => {
-        '/home': (_, __) => const HomePage(),
+        '/login': (_, __) => const LoginPage(),
       };
 
   @override
