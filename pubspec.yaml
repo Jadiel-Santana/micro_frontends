@@ -13,11 +13,14 @@ dependencies:
   micro_core:
     path: packages/core/micro_core
 
-  home:
-    path: packages/micro_apps/home
+  splash:
+    path: packages/micro_apps/splash
 
   login:
     path: packages/micro_apps/login
+
+  home:
+    path: packages/micro_apps/home
 
 dev_dependencies:
   flutter_test:

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:micro_core/micro_core.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key,});
+  const LoginPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +13,16 @@ class LoginPage extends StatelessWidget {
         title: const Text('Login Page'),
       ),
       body: Center(
-        child: TextButton(
-          child: const Text('Home Page'),
-          onPressed: () => navigatorKey.currentState?.pushReplacementNamed('/home'),
+        child: ElevatedButton.icon(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32),
+            ),
+          ),
+          icon: const Icon(Icons.home),
+          label: const Text('Navigate to Home Page'),
+          onPressed: () =>
+              navigatorKey.currentState?.pushReplacementNamed('/home'),
         ),
       ),
     );
