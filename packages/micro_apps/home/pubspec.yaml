@@ -11,11 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  dependencies:
-    path: ../../commons/dependencies
-
   micro_core:
     path: ../../core/micro_core
+
+  design_system:
+    path: ../../commons/design_system
 
 dev_dependencies:
   flutter_test:

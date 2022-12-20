@@ -1,3 +1,3 @@
 library home;
 
-export 'micro_app_home_resolver.dart';
+export 'src/src.dart';

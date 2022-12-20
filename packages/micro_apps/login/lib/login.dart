@@ -1,3 +1,3 @@
 library login;
 
-export 'micro_app_login_resolver.dart';
+export 'src/src.dart';

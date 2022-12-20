@@ -1,1 +1,2 @@
-export 'features/features.dart';
+export 'presentation/presentation.dart';
+export 'splash_module.dart';
