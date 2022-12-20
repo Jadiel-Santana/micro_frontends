@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:design_system/design_system.dart';
+
 import '../../../login.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,19 +23,19 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: const Text('Login Page'),
       ),
-      body: ValueListenableBuilder<LoginState>(
+      body: SingleChildScrollView(
+        child: ValueListenableBuilder<LoginState>(
           valueListenable: widget.presenter,
           builder: (context, state, __) {
             if (state is LoadingState) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
+              return const CustomLoading();
             } else if (state is InitialState) {
               return Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16),
                 child: Form(
                   onChanged: widget.presenter.onFormChanged,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextFormField(
                         controller: widget.presenter.emailController,
@@ -48,10 +50,14 @@ class _LoginPageState extends State<LoginPage> {
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: const InputDecoration(labelText: 'Senha'),
                       ),
-                      const SizedBox(height: 10),
-                      ElevatedButton(
-                        onPressed: state.isFormValid ? widget.presenter.login : null,
-                        child: const Text('Login'),
+                      const SizedBox(height: 24),
+                      SizedBox(
+                        width: 390,
+                        height: 54,
+                        child: ElevatedButton(
+                          onPressed: state.isFormValid ? widget.presenter.login : null,
+                          child: const Text('Entrar'),
+                        ),
                       ),
                     ],
                   ),
@@ -60,7 +66,9 @@ class _LoginPageState extends State<LoginPage> {
             }
 
             return const SizedBox.shrink();
-          }),
+          },
+        ),
+      ),
     );
   }
 }

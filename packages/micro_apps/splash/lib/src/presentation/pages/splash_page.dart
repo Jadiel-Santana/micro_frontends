@@ -27,15 +27,8 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: AppColors.primary,
-      body: Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: CircularProgressIndicator(
-            strokeWidth: 1,
-            color: AppColors.white,
-          ),
-        ),
+      body: CustomLoading(
+        color: AppColors.white,
       ),
     );
   }
