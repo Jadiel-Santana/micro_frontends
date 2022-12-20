@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:design_system/design_system.dart';
 import 'package:micro_core/micro_core.dart';
 
 import 'package:splash/splash.dart';
@@ -15,14 +18,22 @@ class MyApp extends StatelessWidget with BaseApp {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations(
+      <DeviceOrientation>[DeviceOrientation.portraitUp],
+    );
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: AppColors.transparent,
+      ),
+    );
+
     return MaterialApp(
       title: 'Micro Frontends',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.defaultThemeData,
       navigatorKey: navigatorKey,
       onGenerateRoute: super.generateRoute,
       initialRoute: '/splash',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-      ),
     );
   }
 

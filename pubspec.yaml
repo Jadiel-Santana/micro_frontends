@@ -12,20 +12,18 @@ dependencies:
 
   micro_core:
     path: packages/core/micro_core
-
+  design_system:
+    path: packages/commons/design_system
   splash:
     path: packages/micro_apps/splash
-
   login:
     path: packages/micro_apps/login
-
   home:
     path: packages/micro_apps/home
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.1
 
 flutter:
-  uses-material-design: true
