@@ -1,7 +1,7 @@
 enum ValidationError {
   required(message: 'Campo obrigatório'),
   invalidEmail(message: 'E-mail inválido'),
-  invalidField(message: '');
+  invalidField(message: 'Campo inválido');
 
   final String message;
 

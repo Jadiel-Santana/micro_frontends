@@ -1,11 +1,9 @@
-import 'package:flutter/material.dart';
-
 import 'package:micro_core/micro_core.dart';
 import 'package:validation/validation.dart';
 
-import '../../../login.dart';
+import 'login_state.dart';
 
-class LoginPresenter extends ValueNotifier<LoginState> {
+class LoginPresenter extends FormNotifier<LoginState> {
   final AppNavigator appNavigator;
 
   LoginPresenter({
@@ -15,8 +13,9 @@ class LoginPresenter extends ValueNotifier<LoginState> {
   final emailController = CustomTextEditingController(
     validator: ValidatorBuilder().required().email().build(),
   );
+
   final passwordController = CustomTextEditingController(
-    validator: ValidatorBuilder().required().build(),
+    validator: ValidatorBuilder().required().minLength(4).build(),
   );
 
   Future<void> login() async {
@@ -27,13 +26,14 @@ class LoginPresenter extends ValueNotifier<LoginState> {
     appNavigator.pushReplacement(AppRoutes.homePage);
   }
 
+  @override
   void onFormChanged() {
-    if (_isFormValid) {
-      value = LoginState.initial(isFormValid: true);
-    } else {
-      value = LoginState.initial(isFormValid: false);
-    }
+    value = LoginState.initial(isFormValid: isFormValid && hasUserInteraction);
   }
 
-  bool get _isFormValid => emailController.isValid && passwordController.isValid;
+  @override
+  List<CustomTextEditingController> get fieldControllers => [
+        emailController,
+        passwordController,
+      ];
 }

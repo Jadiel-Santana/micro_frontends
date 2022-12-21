@@ -13,5 +13,10 @@ class ValidatorBuilder {
     return this;
   }
 
+  ValidatorBuilder minLength(int min) {
+    validators.add(MinLengthValidator(minLength: min));
+    return this;
+  }
+
   MultiValidator build() => MultiValidator(validators: validators);
 }

@@ -11,6 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  validation:
+    path: ../../commons/validation
+
 flutter:
   uses-material-design: true
 
