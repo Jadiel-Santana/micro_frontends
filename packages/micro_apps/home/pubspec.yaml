@@ -10,15 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  micro_core:
-    path: ../../core/micro_core
+  dependencies:
+    path: ../../commons/dependencies
 
   design_system:
     path: ../../commons/design_system
 
-  dependencies:
-    path: ../../commons/dependencies
+  micro_core:
+    path: ../../core/micro_core
+
+  shared:
+    path: ../../commons/shared
 
 dev_dependencies:
   flutter_test:
