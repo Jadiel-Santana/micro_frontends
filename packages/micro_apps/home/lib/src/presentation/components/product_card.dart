@@ -26,92 +26,100 @@ class ProductCard extends StatelessWidget {
             color: AppColors.neutral5,
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: <Widget>[
-              SizedBox(
-                height: 80,
-                width: 80,
-                child: CachedNetworkImage(
-                  imageUrl: product.image,
-                  imageBuilder: (_, imageProvider) => Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.fill,
+        child: Material(
+          color: AppColors.transparent,
+          child: InkWell(
+            splashColor: AppColors.neutral5,
+            borderRadius: BorderRadius.circular(8),
+            onTap: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
+                children: [
+                  SizedBox(
+                    height: 80,
+                    width: 80,
+                    child: CachedNetworkImage(
+                      imageUrl: product.image,
+                      imageBuilder: (_, imageProvider) => Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                       ),
+                      placeholder: (_, __) => const CustomLoading(),
+                      errorWidget: (_, __, ___) => const Icon(Icons.error),
                     ),
                   ),
-                  placeholder: (_, __) => const CustomLoading(),
-                  errorWidget: (_, __, ___) => const Icon(Icons.error),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      product.title.capitalize(),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextTheme.subtitle1.copyWith(
-                        fontSize: 16,
-                      ),
-                    ),
-                    Text(
-                      product.category.capitalize(),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextTheme.paragraph1.copyWith(
-                        fontSize: 14,
-                        color: AppColors.neutral3,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Text(
+                          product.title.capitalize(),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTextTheme.subtitle1.copyWith(
+                            fontSize: 16,
+                          ),
+                        ),
+                        Text(
+                          product.category.capitalize(),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: AppTextTheme.paragraph1.copyWith(
+                            fontSize: 14,
+                            color: AppColors.neutral3,
+                          ),
+                        ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            RatingBarIndicator(
-                              rating: product.rating,
-                              itemBuilder: (_, __) => const Icon(
-                                Icons.star,
-                                color: AppColors.amber,
-                              ),
-                              itemCount: 5,
-                              itemSize: 14,
-                              direction: Axis.horizontal,
+                            Row(
+                              children: [
+                                RatingBarIndicator(
+                                  rating: product.rating,
+                                  itemBuilder: (_, __) => const Icon(
+                                    Icons.star,
+                                    color: AppColors.amber,
+                                  ),
+                                  itemCount: 5,
+                                  itemSize: 14,
+                                  direction: Axis.horizontal,
+                                ),
+                                const SizedBox(width: 6),
+                                Text(
+                                  '(${product.count})',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: AppTextTheme.paragraph1.copyWith(
+                                    fontSize: 12,
+                                    color: AppColors.neutral3,
+                                  ),
+                                ),
+                              ],
                             ),
-                            const SizedBox(width: 6),
                             Text(
-                              '(${product.count})',
+                              product.price.toCurrency(),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: AppTextTheme.paragraph1.copyWith(
-                                fontSize: 12,
-                                color: AppColors.neutral3,
+                                fontSize: 16,
+                                color: AppColors.green,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
-                        Text(
-                          product.price.toCurrency(),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: AppTextTheme.paragraph1.copyWith(
-                            fontSize: 16,
-                            color: AppColors.green,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
