@@ -5,7 +5,7 @@ import '../splash.dart';
 class SplashModule extends BaseModule {
   @override
   Future<void> init() async {
-    instance.registerFactory<SplashPresenter>(
+    instance.registerLazySingleton<SplashPresenter>(
       () => SplashPresenter(appNavigator: instance()),
     );
   }

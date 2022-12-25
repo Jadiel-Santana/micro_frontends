@@ -5,7 +5,7 @@ import '../login.dart';
 class LoginModule extends BaseModule {
   @override
   Future<void> init() async {
-    instance.registerFactory<LoginPresenter>(
+    instance.registerLazySingleton<LoginPresenter>(
       () => LoginPresenter(appNavigator: instance()),
     );
   }

@@ -28,7 +28,7 @@ class _SplashPageState extends State<SplashPage> {
     return const Scaffold(
       backgroundColor: AppColors.primary,
       body: CustomLoading(
-        color: AppColors.white,
+        color: AppColors.neutral7,
       ),
     );
   }

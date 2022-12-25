@@ -92,9 +92,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
           obscureText: widget.obscureText,
           autocorrect: false,
           enableSuggestions: false,
-          cursorColor: AppColors.black,
+          cursorColor: AppColors.neutral0,
           style: AppTextTheme.paragraph1.copyWith(
-            color: widget.enabled ? AppColors.black : AppColors.secondary,
+            color: widget.enabled ? AppColors.neutral0 : AppColors.neutral4,
           ),
           decoration: InputDecoration(
             counterText: '',
@@ -107,10 +107,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
             errorBorder: colorBorder(errorText),
             focusedErrorBorder: colorBorder(errorText),
             labelStyle: AppTextTheme.paragraph1.copyWith(
-              color: widget.enabled ? AppColors.primary : AppColors.secondary,
+              color: widget.enabled ? AppColors.neutral2 : AppColors.neutral4,
             ),
             floatingLabelStyle: AppTextTheme.subtitle1.copyWith(
-              color: AppColors.black,
+              color: AppColors.neutral0,
             ),
             errorText: errorText,
             labelText: _focusNode.hasFocus || widget.controller.text.isNotEmpty
@@ -141,9 +141,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   Color _changeBorderColor(String? errorText) {
     if (!widget.enabled) {
-      return AppColors.secondary;
+      return AppColors.neutral4;
     } else if (errorText == null && widget.controller.text.isEmpty) {
-      return AppColors.black;
+      return AppColors.neutral3;
     } else if (errorText != null) {
       return AppColors.red;
     } else {

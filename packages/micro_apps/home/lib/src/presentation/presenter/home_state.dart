@@ -1,15 +1,26 @@
+import '../../domain/entities/entities.dart';
+
 abstract class HomeState {
   factory HomeState.initial() = InitialState;
-  factory HomeState.counter({required int counter}) = CounterState;
+  factory HomeState.loading() = LoadingState;
+  factory HomeState.success({required List<ProductEntity> products}) = SuccessState;
+  factory HomeState.error({required String message}) = ErrorState;
 }
 
 class InitialState implements HomeState {
   InitialState();
 }
 
-class CounterState implements HomeState {
-  final int counter;
-  CounterState({
-    required this.counter,
-  });
+class LoadingState implements HomeState {
+  LoadingState();
+}
+
+class SuccessState implements HomeState {
+  final List<ProductEntity> products;
+  SuccessState({required this.products});
+}
+
+class ErrorState implements HomeState {
+  final String message;
+  ErrorState({required this.message});
 }

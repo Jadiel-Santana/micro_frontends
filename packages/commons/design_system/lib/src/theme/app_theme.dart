@@ -6,7 +6,7 @@ class AppTheme {
   AppTheme._();
 
   static ThemeData defaultThemeData =
-      themeData(defaultColorScheme, AppColors.black.withOpacity(0.12));
+      themeData(defaultColorScheme, AppColors.neutral0.withOpacity(0.12));
 
   static ThemeData themeData(ColorScheme colorScheme, Color focusColor) =>
       ThemeData(
@@ -24,21 +24,21 @@ class AppTheme {
         primaryColor: colorScheme.primary,
         primaryColorLight: colorScheme.primaryContainer,
         scaffoldBackgroundColor: colorScheme.background,
-        splashColor: AppColors.white.withOpacity(0.2),
+        splashColor: AppColors.neutral7.withOpacity(0.2),
       );
 
   static const ColorScheme defaultColorScheme = ColorScheme(
-    background: AppColors.white,
+    background: AppColors.neutral6,
     brightness: Brightness.light,
     error: AppColors.red,
-    onBackground: AppColors.black,
-    onError: AppColors.white,
-    onPrimary: AppColors.white,
-    onSecondary: AppColors.white,
-    onSurface: AppColors.black,
+    onBackground: AppColors.neutral0,
+    onError: AppColors.neutral7,
+    onPrimary: AppColors.neutral7,
+    onSecondary: AppColors.neutral7,
+    onSurface: AppColors.neutral0,
     primary: AppColors.primary,
     secondary: AppColors.secondary,
-    surface: AppColors.white,
+    surface: AppColors.neutral7,
   );
 
   static ElevatedButtonThemeData elevatedButtonThemeData(

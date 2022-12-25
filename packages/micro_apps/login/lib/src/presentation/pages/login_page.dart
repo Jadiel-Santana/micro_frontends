@@ -62,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                           onTap: isEmpty ? null : _onVisibilityButtonClick,
                           child: Icon(
                             obscureText ? Icons.visibility_off : Icons.visibility,
-                            color: isEmpty ? AppColors.black.withOpacity(0.5) : AppColors.primary,
+                            color: isEmpty ? AppColors.neutral3 : AppColors.primary,
                           ),
                         ),
                       ),

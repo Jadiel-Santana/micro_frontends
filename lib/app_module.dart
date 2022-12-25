@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:dependencies/dependencies.dart';
 import 'package:micro_core/micro_core.dart';
 
 import 'package:home/home.dart';
@@ -17,10 +18,13 @@ class AppModule extends MainModule {
   @override
   Future<void> registerGlobalInjections() async {
     instance.registerLazySingleton<GlobalKey<NavigatorState>>(
-      GlobalKey<NavigatorState>.new,
+      () => GlobalKey<NavigatorState>(),
     );
     instance.registerLazySingleton<AppNavigator>(
       () => AppNavigatorImpl(navigatorKey: instance()),
+    );
+    instance.registerLazySingleton<Dio>(
+      () => Dio(),
     );
   }
 

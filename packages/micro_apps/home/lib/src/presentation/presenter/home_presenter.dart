@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
+
 import 'package:micro_core/micro_core.dart';
 
+import '../../domain/entities/entities.dart';
+import '../../domain/usecases/usecases.dart';
 import '../../../home.dart';
 
 class HomePresenter extends ValueNotifier<HomeState> {
+  final FetchProductsUsecase fetchProductsUsecase;
   final AppNavigator appNavigator;
 
   HomePresenter({
+    required this.fetchProductsUsecase,
     required this.appNavigator,
   }) : super(HomeState.initial());
 
-  Future<void> fetchHomePage() async {
-    // await Future.delayed(const Duration(seconds: 3));
-    // appNavigator.pushReplacement(AppRoutes.loginPage);
-  }
-
-  void increment() {
-    final state = value;
-
-    if (state is InitialState) {
-      value = HomeState.counter(counter: 1);
-    } else if (state is CounterState) {
-      value = HomeState.counter(counter: state.counter + 1);
+  Future<void> fetchProducts() async {
+    try {
+      value = HomeState.loading();
+      List<ProductEntity> products = await fetchProductsUsecase();
+      value = HomeState.success(products: products);
+    } catch (e) {
+      value = HomeState.error(message: e.toString());
     }
-  }
-
-  void decrement() {
-    value = HomeState.counter(counter: (value as CounterState).counter - 1);
   }
 }

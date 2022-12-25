@@ -9,11 +9,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dependencies:
+    path: packages/commons/dependencies
+
+  design_system:
+    path: packages/commons/design_system
 
   micro_core:
     path: packages/core/micro_core
-  design_system:
-    path: packages/commons/design_system
+
   splash:
     path: packages/micro_apps/splash
   login:
