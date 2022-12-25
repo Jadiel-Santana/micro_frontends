@@ -1,16 +1,14 @@
-# micro_frontends
+# 📱 MicroFrontends
 
-A new Flutter project.
+App desenvolvido para estudos e aplicação de MicroFrontends/MicroApps.
 
-## Getting Started
+[![Flutter](https://img.shields.io/badge/Powered%20by-FLUTTER%20v3.0.5-blue)](https://flutter.dev/)
 
-This project is a starting point for a Flutter application.
+**Tecnologias utilizadas**: Clean Architecture, MVP, SOLID, ValueNotifier, Dio.
 
-A few resources to get you started if this is your first Flutter project:
+**Permissões**: "INTERNET"
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🎨 Layout
+
+<img src="https://user-images.githubusercontent.com/48699769/209478976-50fb7231-3d23-4221-aca0-148ba277e3a8.png"  width="200" height="400"> <img src="https://user-images.githubusercontent.com/48699769/209479010-d7c4b6d2-5c10-4678-90e0-49c4470599fa.png"  width="200" height="400"> <img src="https://user-images.githubusercontent.com/48699769/209479022-76142bdc-52af-4839-8a8e-d03b01ee6115.png"  width="200" height="400">
