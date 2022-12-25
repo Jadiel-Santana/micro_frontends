@@ -17,6 +17,9 @@ dependencies:
   design_system:
     path: ../../commons/design_system
 
+  dependencies:
+    path: ../../commons/dependencies
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
