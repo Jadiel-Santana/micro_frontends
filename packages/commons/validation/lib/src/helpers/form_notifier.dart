@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../validation.dart';
 
 abstract class FormNotifier<T> extends ValueNotifier<T> {
+  Listenable? _listenable;
+
   FormNotifier(super.value) {
     _initFormListener();
   }
@@ -12,12 +14,12 @@ abstract class FormNotifier<T> extends ValueNotifier<T> {
   void onFormChanged();
 
   void _initFormListener() {
-    _listenable.addListener(onFormChanged);
-  }
+    _listenable = Listenable.merge(
+      fieldControllers.map((controller) => controller.isValid).toList(),
+    );
 
-  Listenable get _listenable => Listenable.merge(
-        fieldControllers.map((controller) => controller.isValid).toList(),
-      );
+    _listenable?.addListener(onFormChanged);
+  }
 
   bool get isFormValid => fieldControllers.fold(
         true,
@@ -35,6 +37,7 @@ abstract class FormNotifier<T> extends ValueNotifier<T> {
     for (final controller in fieldControllers) {
       controller.dispose();
     }
-    _listenable.removeListener(onFormChanged);
+
+    _listenable?.removeListener(onFormChanged);
   }
 }
